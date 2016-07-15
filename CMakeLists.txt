@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.0.0)
+project(tsocks)
+include_directories(${CMAKE_SOURCE_DIR})
+
+if(UNIX)
+	add_executable(saveme saveme.c)
+endif()
+add_executable(inspectsocks inspectsocks.c common.c)
+add_executable(validateconf validateconf.c common.c parser.c)
+add_library(tsocks SHARED tsocks.c common.c parser.c)
